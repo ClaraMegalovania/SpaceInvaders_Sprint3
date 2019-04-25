@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Space Invaders</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script type="text/javascript" src="Interfaz.js"></script>
+        <script type="text/javascript" src="MenuIntro.js"></script>
+        <script type="text/javascript" src="MenuPrincipal.js"></script>
+        <script type="text/javascript" src="MenuJugar.js"></script>
+        <script type="text/javascript" src="MenuControles.js"></script>
+        <script type="text/javascript" src="MenuCreadores.js"></script>
+        <script type="text/javascript" src="MenuCreditos.js"></script>
+        <script type="text/javascript" src="Comunes.js"></script>
+        <script type="text/javascript" src="SinDisparos.js"></script>
+        <script type="text/javascript" src="sinDisparos2.js"></script>
+        <script type="text/javascript" src="sinDisparos3.js"></script>
+        <script type="text/javascript" src="ConDisparos.js"></script>
+        <script type="text/javascript" src="ConDisparosJefeFinal.js"></script>
+        <script type="text/javascript" src="Ranking.js"></script>
+
+    <audio id="musicaMenu" src="Sonidos/Fondo/Megalovania.mp3" loop="true">Tu navegador no soporta audio</audio>
+    <audio id="musicaSubMenu" src="Sonidos/Fondo/DFTR.mp3" loop="true">Tu navegador no soporta audio</audio>
+    <audio id="musicaFBSD" src="Sonidos/Fondo/FinalBossSDMusica.mp3" loop="true">Tu navegador no soporta audio</audio>
+    <audio id="musicaJuego" src="Sonidos/Fondo/UIG.mp3" loop="true">Tu navegador no soporta audio</audio>
+    <audio id="musicaJuegoLenta" src="Sonidos/Fondo/UIGLenta.mp3" loop="true">Tu navegador no soporta audio</audio>
+    <audio id="agujeroNegro" src="Sonidos/Fondo/AgujeroNegro.mp3">Tu navegador no soporta audio</audio>
+    <audio id="menuSelect" src="Sonidos/Efectos/MenuSelect.wav">Tu navegador no soporta audio</audio>
+    <audio id="menuMover" src="Sonidos/Efectos/MenuMover.mp3">Tu navegador no soporta audio</audio>
+    <audio id="disparo" src="Sonidos/Efectos/Disparo.mp3">Tu navegador no soporta audio</audio>
+    <audio id="umbrella" src="Sonidos/Efectos/Umbrella.mp3">Tu navegador no soporta audio</audio>
+    <audio id="explosion" src="Sonidos/Efectos/Explosion.mp3">Tu navegador no soporta audio</audio>
+    <audio id="daño" src="Sonidos/Efectos/Daño.mp3">Tu navegador no soporta audio</audio>
+    <audio id="win" src="Sonidos/Efectos/Win.mp3">Tu navegador no soporta audio</audio>
+    <audio id="gameOver" src="Sonidos/Efectos/GameOver.mp3">Tu navegador no soporta audio</audio>
+    <audio id="powerUpVida" src="Sonidos/Efectos/PowerUpVida.mp3">Tu navegador no soporta audio</audio>
+    <audio id="powerUpBunker" src="Sonidos/Efectos/PowerUpBunker.mp3">Tu navegador no soporta audio</audio>
+    <audio id="powerUpTiempo1" src="Sonidos/Efectos/PowerUpTiempo1.mp3">Tu navegador no soporta audio</audio>
+    <audio id="powerUpTiempo2" src="Sonidos/Efectos/PowerUpTiempo2.mp3">Tu navegador no soporta audio</audio>
+    <audio id="powerUpInmortal1" src="Sonidos/Efectos/PowerUpInmortal1.mp3">Tu navegador no soporta audio</audio>
+    <audio id="powerUpInmortal2" src="Sonidos/Efectos/PowerUpInmortal2.mp3">Tu navegador no soporta audio</audio>
+    <audio id="explosionNube0" src="Sonidos/Efectos/NubeExplosion.mp3">Tu navegador no soporta audio</audio>
+    <audio id="explosionNube1" src="Sonidos/Efectos/NubeExplosion.mp3">Tu navegador no soporta audio</audio>
+    <audio id="explosionNube2" src="Sonidos/Efectos/NubeExplosion.mp3">Tu navegador no soporta audio</audio>
+    <audio id="explosionNube3" src="Sonidos/Efectos/NubeExplosion.mp3">Tu navegador no soporta audio</audio>
+    <audio id="explosionNube4" src="Sonidos/Efectos/NubeExplosion.mp3">Tu navegador no soporta audio</audio>
+    <audio id="explosionNube5" src="Sonidos/Efectos/NubeExplosion.mp3">Tu navegador no soporta audio</audio>
+    <audio id="explosionNube6" src="Sonidos/Efectos/NubeExplosion.mp3">Tu navegador no soporta audio</audio>
+    <audio id="explosionNube7" src="Sonidos/Efectos/NubeExplosion.mp3">Tu navegador no soporta audio</audio>
+    <audio id="explosionNube8" src="Sonidos/Efectos/NubeExplosion.mp3">Tu navegador no soporta audio</audio>
+    <audio id="explosionNube9" src="Sonidos/Efectos/NubeExplosion.mp3">Tu navegador no soporta audio</audio>
+    <audio id="finalExplosion" src="Sonidos/Efectos/FinalExplosion.mp3">Tu navegador no soporta audio</audio>
+    <audio id="airRecover" src="Sonidos/Efectos/airRecover.mp3">Tu navegador no soporta audio</audio>
+    <audio id="reboteFBSDP" src="Sonidos/Efectos/reboteFBSD.mp3">Tu navegador no soporta audio</audio>
+    <audio id="reboteFBSDT" src="Sonidos/Efectos/reboteFBSD.mp3">Tu navegador no soporta audio</audio>
+    <audio id="portal1Snd" src="Sonidos/Efectos/portal1Snd.mp3">Tu navegador no soporta audio</audio>
+    <audio id="enfadoFBSD" src="Sonidos/Efectos/enfadoFBSD.mp3">Tu navegador no soporta audio</audio>
+
+    <style>
+        #lienzo{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border: 1px solid black;
+            align-self:center;
+            background-color: black;
+            width: 66%;
+            height: 99%;
+        }
+
+        #lienzoIzq{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border: 1px solid black;  
+            margin-left: 5px;
+            background-color: orange;
+            width: 16.4%;
+            height: 75%;
+        }
+
+        #lienzoDer{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border: 1px solid black;  
+            margin-right: 5px;
+            background-color: orange;
+            width: 16.4%;
+            height: 75%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <canvas id="lienzo" width="1310" height="960">Tu navegador no soporta canvas</canvas>
+        <canvas id="lienzoIzq" width="295" height="700">Tu navegador no soporta canvas</canvas>
+        <canvas id="lienzoDer" width="295" height="700">Tu navegador no soporta canvas</canvas>
+    </div>  
+
+    <script>
+        "use strict";
+        interfaz();
+        menuIntro();
+    </script>
+</body>
+</html>
